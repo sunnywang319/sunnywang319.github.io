@@ -15,6 +15,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
     </head>
+
     <body id="page-top">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
@@ -24,6 +25,9 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav">
+                    <a class="btn btn-primary btn-lg" href="https://github.com/sunnywang319/alzheimersdeeplearning" role="button">View Repo</a>
+                    <a class="btn btn-primary btn-lg" href="fullpaper.pdf" role="button">Read my Paper</a>
+                    <br><br><br><br><br><br><br><br><br>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#Introduction">Introduction</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#Preprocessing">Preprocessing</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#CycleGAN_Augmentation">CycleGAN Augmentation</a></li>
@@ -38,20 +42,19 @@
             <!-- Introduction-->
             <section class="resume-section" id="Introduction">
                 <div class="resume-section-content">
-                    <h1 class="mb-0">
+                    <h1 class="mb-3">
                         Diagnosing Alzheimer’s Disease using Deep Learning
                     </h1>
-                    <div class="subheading mb-2">
+                    <div class="subheading mb-1">
                     2020 · Summer STEM Institute 
+                    
                     </div>
-                    <img class="img" src="assets/img/pipeline.png" alt="" />
-                    <br>
-                    <br>
                     <p class="lead mb-3"> An MRI based CNN architecture to diagnose Alzheimer's Disease using CycleGAN data augmentation.
                         Serves as both a medical tool and a proof of concept for the use of GANs in data augmentation. </p>
 
-                    <a class="btn btn-primary btn-lg" href="https://github.com/sunnywang319/alzheimersdeeplearning" role="button">View Repo</a>
-                    <a class="btn btn-primary btn-lg" href="fullpaper.pdf" role="button">Read my Paper</a>
+                    <img class="img mb-5" src="assets/img/pipeline.png" alt="" />
+                    
+                    
                                 
                 </div>
             </section>
@@ -61,7 +64,15 @@
             <section class="resume-section" id="Preprocessing">
                 <div class="resume-section-content">
                     <h2 class="mb-5">Preprocessing</h2>
-                    <img class="img-fluid" src="assets/img/pipeline.png" alt="" />
+                    <p class="lead mb-3">Two types of preprocessing were tested.</p>
+                    <p class="lead mb-3">Skull Stripping:</p>
+                    <img class="img-fluid" src="assets/img/ad.png" alt="" />
+                    <img class="img-fluid" src="assets/img/nc.png" alt="" />
+                    <br>
+                    <br>
+                    <p class="lead mb-3">And TorchIO:</p>
+                    <img class="img-fluid" src="assets/img/torchioad.png" alt="" />
+                    <img class="img-fluid" src="assets/img/torchionc.png" alt="" />
                     
                 </div>
             </section>
@@ -71,7 +82,8 @@
             <section class="resume-section" id="CycleGAN_Augmentation">
                 <div class="resume-section-content">
                     <h2 class="mb-5">CycleGAN Augmentation</h2>
-                    
+                    <img class="img" src="assets/img/adtonc.png" alt="" style="width:660px;height:300px;"/>
+                    <img class="img" src="assets/img/nctoad.png" alt="" style="width:660px;height:300px;"/>
                 </div>
             </section>
 
@@ -80,6 +92,16 @@
             <section class="resume-section" id="Model_Architecture">
                 <div class="resume-section-content">
                     <h2 class="mb-5">Model Architecture</h2>
+                    <p class="lead mb-3">I used transfer learning with ResNet50 as the pretrained model. 
+                        The model takes in three images as input, which are each fed through a ResNet50 CNN, and concatenated into a dense layer. 
+                        Dropout is then applied and the final layer returns the diagnosis.</p>
+                    <p class="lead mb-3">The model was fine-tuned using
+                        the Adam optimizer with a learning rate of 0.0001, and trained for 50 epochs with a batch
+                        size of 32. A training, validation, and testing split of 80%-10%-10% was used. Models
+                        were evaluated based on accuracy, precision, recall, and F1 score.</p>
+                    <img class="img-fluid mb-3" src="assets/img/architecture.png" alt="" />
+
+                    
                     
                     
                 </div>
@@ -91,6 +113,12 @@
                 <div class="resume-section-content">
                     <h2 class="mb-5">Results</h2>
                     
+                    <img class="img" src="assets/img/resnet.png" alt="" style="width:300px;height:330px;" />
+
+                    <img class="img" src="assets/img/ss.png" alt="" style="width:300px;height:330px;" />
+
+                    <img class="img" src="assets/img/torchio.png" alt="" style="width:300px;height:330px;" />
+
                 </div>
             </section>
 
